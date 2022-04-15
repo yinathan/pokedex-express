@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include("partials/head.ejs") %>
+
+    <body>
+        <style>
+            body{
+                background-color: lightcoral;
+                color: aqua;
+            }
+            h1 {
+                text-align: center;
+                font-size: 75px;
+                font-weight: bold;
+            }
+            .container{
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                flex-flow: row wrap;
+                
+            }
+            .name {
+                text-align: center;
+                
+            }
+            .image {
+                width: 250px;
+                height: 250px;
+
+            }
+        </style>
+        <h1>Pokedex</h1>
+            <div class="container">
+                <% for (let pokemon in pokedex) { %>
+                    <div>
+                <h3 class="name"><%= pokedex[pokemon].name %></h3>
+                
+                    <img src = "<%= pokedex[pokemon].img %>" class="image">
+                
+            </div>
+               <% } %>
+            </div>
+    </body>
+
+</html>

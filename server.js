@@ -4,13 +4,26 @@ const express = require("express")
 const app = express()
 const PORT = process.env.PORT || 3001;
 const pokemon = require('./models/pokemon.js');
+const morgan = require("morgan")
+const methodOverride = require("method-override")
+
+app.use(express.urlencoded({ extended: false }));
+app.use(morgan("tiny"));
+app.use("/static", express.static("public"));
+app.use(methodOverride("_method"));
+
 
 // Index   GET /pokemon
 app.get("/pokemon", (req, res) => {
-    res.send(pokemon)
+    res.render("index.ejs", { pokedex: pokemon })
 })
 
 // Show  GET /pokemon/:id
+app.get("/pokemon/:id", (req, res) => {
+    
+    res.render("show.ejs", { pokeIndex: pokemon[req.params.id] })
+    
+})
 
 // New GET /pokemon/new
 
