@@ -28,16 +28,30 @@
             .image {
                 width: 250px;
                 height: 250px;
-
+            }
+            .buttons {
+                text-align: center;
+            }
+            button{
+                margin: 10px;
+                margin-bottom: 40px;
             }
         </style>
         <h1>Pokedex</h1>
+        <button onclick="location.href='http://localhost:3000/pokemon/new'" type="button">
+            Create a new Pokemon</button>
             <div class="container">
                 <% for (let pokemon in pokedex) { %>
                     <div>
                 <h3 class="name"><%= pokedex[pokemon].name %></h3>
                 
-                    <img src = "<%= pokedex[pokemon].img %>" class="image">
+                    <a href="/pokemon/<%=pokemon%>"><img src = "<%= pokedex[pokemon].img %>" class="image"></a>
+                    <div class="buttons">
+                        <button onclick="location.href='http://localhost:3000/pokemon/<%=pokemon%>/edit'" type="button">
+                            EDIT</button>
+                        <button onclick="location.href='http://localhost:3000/pokemon/<%=pokemon%>/delete'" type="button">
+                                DELETE</button>
+                    </div>
                 
             </div>
                <% } %>
