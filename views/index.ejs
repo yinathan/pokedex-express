@@ -5,14 +5,24 @@
 
     <body>
         <style>
+            @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
             body{
-                background-color: lightcoral;
-                color: aqua;
+                background-color: #3B4CCA;
+                color: #FFDE00;
             }
             h1 {
-                text-align: center;
-                font-size: 75px;
+              
+                font-size: 70px;
                 font-weight: bold;
+                margin-bottom: 10px;
+                font-family: 'Press Start 2P', cursive;
+            }
+            .title {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-flow: column;
             }
             .container{
                 display: flex;
@@ -23,23 +33,52 @@
             }
             .name {
                 text-align: center;
+                font-family: 'Press Start 2P';
+                font-size: 20px;
+
                 
             }
             .image {
                 width: 250px;
                 height: 250px;
+                border-radius: 20%;
+                box-shadow: 3px 3px 3px 3px #b3a125;
+
             }
             .buttons {
-                text-align: center;
+                display: flex;
+                align-items: center;
+                flex-flow: row;
+                justify-content: center;
+                margin-top: 0px;
+                height: 70px;
             }
-            button{
+            .edit{
                 margin: 10px;
-                margin-bottom: 40px;
+                margin-bottom: 5px;
+                background-color: #FF0000;
+                width: 106.59px;
+                height: 38px
+
             }
+            #create {
+                margin-top: 0px;
+                margin-bottom: 40px;
+                background-color: #FF0000;
+            }
+
+            input[type='submit'] {
+                background-color: #FF0000;
+                margin-top: 45px;
+            }
+         
+         
         </style>
-        <h1>Pokedex</h1>
-        <button onclick="location.href='http://localhost:3000/pokemon/new'" type="button">
+        <div class="title">
+        <h1>Pokédex</h1>
+        <button onclick="location.href='http://localhost:3000/pokemon/new'" type="button" id="create">
             Create a new Pokemon</button>
+            </div>
             <div class="container">
                 <% for (let pokemon in pokedex) { %>
                     <div>
@@ -47,9 +86,9 @@
                 
                     <a href="/pokemon/<%=pokemon%>"><img src = "<%= pokedex[pokemon].img %>" class="image"></a>
                     <div class="buttons">
-                        <button onclick="location.href='http://localhost:3000/pokemon/<%=pokemon%>/edit'" type="button">
+                        <button class="edit" onclick="location.href='http://localhost:3000/pokemon/<%=pokemon%>/edit'" type="button">
                             EDIT</button>
-                        <form action="/pokemon/<%=pokemon%>?_method=delete" method="post"><input type="submit" value="Delete"></input></form>
+                        <form action="/pokemon/<%=pokemon%>?_method=delete" method="post"><input class="delete" type="submit" value="Delete"></input></form>
                     </div>
                 
             </div>
