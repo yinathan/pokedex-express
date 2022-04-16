@@ -9,22 +9,27 @@
                 background-color: lightcoral;
                 color: aqua;
             }
+
             h1 {
                 text-align: center;
                 font-size: 75px;
                 font-weight: bold;
             }
-            .container{
+
+            .container {
                 display: flex;
                 justify-content: space-around;
                 flex-flow: row wrap;
             }
-            .stats{
+
+            .stats {
                 border: solid 2px blue;
             }
-            .damages{
+
+            .damages {
                 border: solid 2px blue;
             }
+
             li {
                 list-style: none;
             }
@@ -35,11 +40,14 @@
 
         <div class="container">
             <div>
-            <img src="<%= pokeIndex.img %>">
-            <h3> Type: <%= pokeIndex.type %>
-            </h3>
+                <img src="<%= pokeIndex.img %>">
+                <h3>
+                    <%=pokeIndex.id%>
+                </h3>
+                <h3> Type: <%= pokeIndex.type %>
+                </h3>
             </div>
-                <div class="stats">
+            <div class="stats">
                 <h4>Stats</h4>
                 <ul>
                     <% for(let element in pokeIndex.stats) { %>
@@ -48,17 +56,8 @@
                         </li>
                         <% } %>
                 </ul>
-                </div>
-                <div class="damages">
-                <h4>Damages</h4>
-                <% for(let element in pokeIndex.damages) { %>
-                    <li>
-                        <%= element %> : <%= pokeIndex.damages[element] %>
-                    </li>
-                    <% } %>
-                    </div>
+            </div>
 
-                </div>
     </body>
 
 </html>

@@ -49,8 +49,7 @@
                     <div class="buttons">
                         <button onclick="location.href='http://localhost:3000/pokemon/<%=pokemon%>/edit'" type="button">
                             EDIT</button>
-                        <button onclick="location.href='http://localhost:3000/pokemon/<%=pokemon%>/delete'" type="button">
-                                DELETE</button>
+                        <form action="/pokemon/<%=pokemon%>?_method=delete" method="post"><input type="submit" value="Delete"></input></form>
                     </div>
                 
             </div>
